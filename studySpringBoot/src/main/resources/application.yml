@@ -1,2 +1,8 @@
 server:
-  port: 8081
+  port: 4444
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
