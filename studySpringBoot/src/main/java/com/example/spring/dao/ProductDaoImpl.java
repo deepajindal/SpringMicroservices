@@ -42,5 +42,19 @@ public class ProductDaoImpl implements ProductDao {
 		session.save(product);
 		return product;
 	}
+	
+	@Transactional
+	public Product getProductById(int id) {
+		Session session = entityManager.unwrap(Session.class);
+		return session.get(Product.class, id);
+	}
+
+	@Override
+	@Transactional
+	public void removeProduct(int id) {
+		Session session = entityManager.unwrap(Session.class);
+		Product product = session.get(Product.class, id);
+		session.delete(product);
+	}
 
 }
